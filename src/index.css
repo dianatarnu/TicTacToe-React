@@ -53,3 +53,7 @@ body {
 .flex-list{
   display: flex;
 }
+
+.bold {
+  font-weight: bold;
+}
