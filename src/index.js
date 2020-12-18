@@ -55,7 +55,7 @@ class Game extends React.Component {
         }
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
     }
   }
 
@@ -106,6 +106,12 @@ class Game extends React.Component {
         null;
         
       const bold = move === this.state.stepNumber ? 'bold' : '';
+      // const draw = "It's a draw";
+
+      
+      // if(move === 9){
+      //   alert(draw);
+      // }
 
       return (
         <li key={move} className={bold}>
@@ -118,7 +124,10 @@ class Game extends React.Component {
     if (winner) {
       status = 'Winner: ' + winner;
     }
-    else {
+    else if (this.state.stepNumber === 9){
+      status = "It's a draw";
+    }
+    else{
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
@@ -155,6 +164,7 @@ function calculateWinner(squares) {
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
     }
+
   }
   return null;
 }
